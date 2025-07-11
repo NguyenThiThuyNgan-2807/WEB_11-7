@@ -26,5 +26,29 @@
             document.getElementById("result").innerText = "Hello " + name;
         }
     </script>
+
+    <h3>3. Input 2 num</h3>
+    <input type="number" id="num1" placeholder="number1">
+    <input type="number" id="num2" placeholder="number2">
+    <button onclick="sum()">Enter</button>
+    <p id="tong"></p>
+    <script>
+        function sum(){
+            const a =+ document.getElementById("num1").value;
+            const b =+ document.getElementById("num2").value;
+            document.getElementById("tong").innerText = "Tổng = " + (a+b);
+        }
+    </script>
+
+    <h3>4. Có nhập hay chưa?</h3>
+    <input type="text" id="input" placeholder="Nhập">
+    <button onclick="check()">Enter</button>
+    <p id="nhap"></p>
+    <script>
+        function check(){
+            const val = document.getElementById("input").value;
+            document.getElementById("nhap").innerText = val ? "Đã nhập: " + val : "Input please";
+        }
+    </script>
 </body>
 </html>
