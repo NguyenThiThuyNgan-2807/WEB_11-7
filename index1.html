@@ -6,13 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Your Name</h3>
+    <h3>1. Hello (console)</h3>
     <input type="text" id="yourname" placeholder="Your Name">
     <button onclick="printHello()">Enter</button>
     <script>
         function printHello(){
             const name = document.getElementById("yourname").value;
             console.log("Hello " + name);
+        }
+    </script>
+
+    <h3>2. Hello (web)</h3>
+    <input type="text" id="yourname" placeholder="Your Name">
+    <button onclick="showHello()">Enter</button>
+    <p id="result"></p>
+    <script>
+        function showHello(){
+            const name = document.getElementById("yourname").value;
+            document.getElementById("result").innerText = "Hello " + name;
         }
     </script>
 </body>
