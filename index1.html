@@ -91,8 +91,15 @@
     </script>
 
     <h4>8. Kiểm tra số theo dạng (024-XXXXXX):</h4>
-    <input type="text" id="sdt">
-    <button onclick="ktra2">Enter</button>
-    
+    <input type="text" id="sdt" placeholder="SĐT">
+    <button onclick="ktra2()">Enter</button>
+    <p id="ktra3"></p>
+    <script>
+        function ktra2(){
+            const a = document.getElementById("sdt").value;
+            if (/^024-\d{6}$/.test(a)) return ktra3.innerText = "Hợp lệ: " + a;
+            else return ktra3.innerText = "Không hợp lệ (định dạng phải là 024-XXXXXX)";
+        }
+    </script>
 </body>
 </html>
