@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        h3{
+            color: rgb(55, 97, 177);
+        }
+        button{
+            background-color: rgb(33, 187, 102);
+        }
+    </style>
 </head>
 <body>
     <h3>1. Hello (console):</h3>
@@ -11,7 +24,7 @@
     <button onclick="printHello()">Enter</button>
     <script>
         function printHello(){
-            const name = document.getElementById("yourname").value;
+            var name = document.getElementById("yourname").value;
             console.log("Hello " + name);
         }
     </script>
@@ -22,7 +35,7 @@
     <p id="result"></p>
     <script>
         function showHello(){
-            const name = document.getElementById("yourname").value;
+            var name = document.getElementById("yourname").value;
             document.getElementById("result").innerText = "Hello " + name;
         }
     </script>
@@ -34,8 +47,8 @@
     <p id="tong"></p>
     <script>
         function sum(){
-            const a =+ document.getElementById("num1").value;
-            const b =+ document.getElementById("num2").value;
+            var a =+ document.getElementById("num1").value;
+            var b =+ document.getElementById("num2").value;
             document.getElementById("tong").innerText = "Tổng = " + (a+b);
         }
     </script>
@@ -46,7 +59,7 @@
     <p id="nhap"></p>
     <script>
         function check(){
-            const val = document.getElementById("input").value;
+            var val = document.getElementById("input").value;
             document.getElementById("nhap").innerText = val ? "Đã nhập: " + val : "Input please";
         }
     </script>
@@ -57,7 +70,7 @@
     <p id="xuat"></p>
     <script>
         function check1(){
-            const c = document.getElementById("char").value;
+            var c = document.getElementById("char").value;
             document.getElementById("xuat").innerText = !isNaN(c) && c !== "" ? "Ký tự số" : "Chuỗi";
         }
     </script>
@@ -69,8 +82,8 @@
     <p id="tong1"></p>
     <script>
         function sum1(){
-            const a = document.getElementById("a").value;
-            const b = document.getElementById("b").value;
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
             if (!a || !b) return tong1.innerText = "Vui lòng nhập cả hai số.";
             if (isNaN(a) || isNaN(b)) return tong1.innerText = "Chỉ được nhập số.";
             tong1.innerText = "Tổng = " + (+a + +b);
@@ -83,22 +96,46 @@
     <p id="ktra1"></p>
     <script>
         function ktra(){
-            const a = document.getElementById("phone").value;
+            var a = document.getElementById("phone").value;
             if (a.length !== 10) return ktra1.innerText= "Phải đủ 10 số.";
             else if (!/^\d+$/.test(a)) return ktra1.innerText = "Chỉ được nhập số.";
             else return ktra1.innerText = "Hợp lệ: " + a;
         }
     </script>
 
-    <h4>8. Kiểm tra số theo dạng (024-XXXXXX):</h4>
+    <h3>8. Kiểm tra số theo dạng (024-XXXXXX):</h3>
     <input type="text" id="sdt" placeholder="SĐT">
     <button onclick="ktra2()">Enter</button>
     <p id="ktra3"></p>
     <script>
         function ktra2(){
-            const a = document.getElementById("sdt").value;
+            var a = document.getElementById("sdt").value;
             if (/^024-\d{6}$/.test(a)) return ktra3.innerText = "Hợp lệ: " + a;
             else return ktra3.innerText = "Không hợp lệ (định dạng phải là 024-XXXXXX)";
+        }
+    </script>
+
+    <h3>9. Kiểm tra theo định dạng mobile 09XXXXXXXX:</h3>
+    <input type="text" id="so" placeholder="SĐT">
+    <button onclick="so()">Enter</button>
+    <p id="so1"></p>
+    <script>
+        function so(){
+            var a = document.getElementById("so").value;
+            if (/^09-\d{8}$/.test(a)) return so1.innerText = "Hợp lệ: " + a;
+            else return so1.innerText = "Không hợp lệ (định dạng phải là 09XXXXXXXX)";
+        }
+    </script>
+
+    <h3>10. Kiểm tra mã nhân viên FPT-XXXXXX:</h3>
+    <input type="text" id="ma" placeholder="MANV">
+    <button onclick="mnv()">Enter</button>
+    <p id="manv"></p>
+    <script>
+        function mnv(){
+            var ma = document.getElementById("ma").value;
+            if (/^FPT-\d{6}$/.test(ma)) return document.getElementById("manv").innerText = "Mã hợp lệ.";
+            else return document.getElementById("manv").innerText = "Không hợp lệ.";
         }
     </script>
 </body>
