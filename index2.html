@@ -1,24 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
+        body {
             font-family: 'Times New Roman', Times, serif;
             margin: 0 auto;
             padding: 20px;
         }
 
+        h3 {
+            color: rgb(116, 180, 116);
+        }
+        input{
+            margin-bottom: 10px;
+        }
     </style>
 </head>
+
 <body>
     <h3>KIỂM TRA CCCD</h3>
-    <form action="cccd">
-        <input type="text" placeholder="Họ và tên">
+    <input type="text" id="so" placeholder="Số CCCD"><br>
+    <input type="text" id="name" placeholder="Họ và tên"><br>
+    <input type="date" id="date" placeholder="Ngày sinh"><br>
+    <input type="text" id="address" placeholder="Quê quán"><br>
+    <button onclick="ktra()">Kiểm tra</button>
+    <p id="check1"></p>
 
-    </form>
-    <button onclick="send">Kiểm tra</button>
+    <script>
+        function ktra() {
+            var so = document.getElementById("so").value.trim();
+            var name = document.getElementById("name").value.trim();
+            var date = document.getElementById("date").value;
+            var address = document.getElementById("address").value.trim();
+            var check = "";
+
+            if (!/^\d{9}$|^\d{12}$/.test(so)) {
+                check = "Số CCCD phải gồm 9 hoặc 12 chữ số.";
+            } else if (!name) {
+                check = "Vui lòng nhập họ tên.";
+            } else if (!date) {
+                check = "Vui lòng nhập ngày sinh.";
+            } else if (!address) {
+                check = "Vui lòng nhập quê quán.";
+            } else {
+                check = "Thông tin hợp lệ.";
+            }
+
+            document.getElementById("check1").innerText = check;
+        }
+    </script>
 </body>
+
 </html>
