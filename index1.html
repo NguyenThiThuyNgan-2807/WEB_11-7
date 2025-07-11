@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>1. Hello (console)</h3>
+    <h3>1. Hello (console):</h3>
     <input type="text" id="yourname" placeholder="Your Name">
     <button onclick="printHello()">Enter</button>
     <script>
@@ -16,7 +16,7 @@
         }
     </script>
 
-    <h3>2. Hello (web)</h3>
+    <h3>2. Hello (web):</h3>
     <input type="text" id="yourname" placeholder="Your Name">
     <button onclick="showHello()">Enter</button>
     <p id="result"></p>
@@ -27,7 +27,7 @@
         }
     </script>
 
-    <h3>3. Input 2 num</h3>
+    <h3>3. Input 2 num:</h3>
     <input type="number" id="num1" placeholder="number1">
     <input type="number" id="num2" placeholder="number2">
     <button onclick="sum()">Enter</button>
@@ -50,5 +50,33 @@
             document.getElementById("nhap").innerText = val ? "Đã nhập: " + val : "Input please";
         }
     </script>
+
+    <h3>5. Input 1 word:</h3>
+    <input type="text" id="char" placeholder="Nhập">
+    <button onclick="check1()">Enter</button>
+    <p id="xuat"></p>
+    <script>
+        function check1(){
+            const c = document.getElementById("char").value;
+            document.getElementById("xuat").innerText = !isNaN(c) && c !== "" ? "Ký tự số" : "Chuỗi";
+        }
+    </script>
+
+    <h3>6. Nâng cấp câu 3: </h3>
+    <input type="text" id="a" placeholder="number1">
+    <input type="text" id="b" placeholder="number2">
+    <button onclick="sum1()">Enter</button>
+    <p id="tong1"></p>
+    <script>
+        function sum1(){
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            if (!a || !b) return tong1.innerText = "Vui lòng nhập cả hai số";
+            if (isNaN(a) || isNaN(b)) return tong1.innerText = "Chỉ được nhập số";
+            tong1.innerText = "Tổng = " + (+a + +b);
+        }
+    </script>
+
+    <h3>7. Kiểm tra 10 số moblie phone</h3>
 </body>
 </html>
